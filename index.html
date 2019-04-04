@@ -44,12 +44,13 @@
 	    c.b = 0.7;
 	    gl_FragColor = c;
 
-	}" width="800" height="700"></canvas>
+	}" ></canvas>
 	</body>
 
     <script>
         var canvas = document.getElementById("glslCanvas")
-
+        canvas.width = 500
+        canvas.height = 400
         
         var w = window.innerWidth
         var h = window.innerHeight
