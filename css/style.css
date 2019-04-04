@@ -68,7 +68,7 @@ body.loading {
 }
 
 #footer #container {
-    width: 130pt;
+    width: 160pt;
 }
 
 #footer #container #img {
@@ -104,11 +104,16 @@ body.loading {
 	width: 160pt;
 }
 
+.screenshot {
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
 .mobile .screenshot {
     margin-top: 20pt;
-    height: 80vh;
-    overflow-x: visible;
-    overflow-y: hidden;
+    height: 100vh;
+    background-size: cover;
 }
 
 li {
