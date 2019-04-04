@@ -51,7 +51,7 @@ body.loading {
     height: 700pt;
     max-width: 100vw;
     position: absolute;
-    background: radial-gradient(#6b314680 10%, #111eaf00 50%, #111eaf00);
+    background: radial-gradient(#e7598d80 10%, #111eaf00 50%, #111eaf00);
 }
 
 .mobile #header img {
