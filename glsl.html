@@ -1,0 +1,66 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SoundMind</title>
+
+        <script type="text/javascript" src="./glslcanvas.js"></script>
+
+
+        <style>
+            body {
+                background: #101515;
+            }
+
+            #glslCanvas {
+                position: absolute;
+                
+                left: 0;
+                top: 0;
+                /*image-rendering: pixelated;*/
+                
+            }​
+        </style>
+
+    </head>
+    <body>
+    <canvas id="glslCanvas" data-fragment="
+    
+    precision lowp float;
+    uniform vec2 u_resolution;
+    uniform float u_time;
+
+    void main(){
+
+        float i = u_time/10.0;
+        vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;        
+        vec4 c = vec4(1.0);
+        mat2 m = mat2(sin(length(uv)+i),cos(uv.x-i*.5),sin(uv.x*uv.y),sin(cos(uv.x)+uv.y));
+        c.rg = atan(sin(uv.xy*m+i)*8.0)*m;
+        c.r += 0.4;
+        c.g -= 0.3;
+        c.b = 0.7;
+        gl_FragColor = c;
+
+    }" ></canvas>
+    </body>
+
+    <script>
+        var canvas = document.getElementById("glslCanvas")
+        canvas.width = 500
+        canvas.height = 400
+        
+        var w = window.innerWidth
+        var h = window.innerHeight
+        canvas.style.width = w+"px"
+        canvas.style.height = h+"px"
+        
+        var sandbox = new GlslCanvas(canvas)
+
+        // canvas.style.transformOrigin = "0 0"
+        
+        
+
+    </script>
+
+</html>

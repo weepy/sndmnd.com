@@ -1,66 +1,128 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>SoundMind</title>
 
-        <script type="text/javascript" src="./glslcanvas.js"></script>
+<html lang="en">
+<head>
 
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>SoundMind</title>
+  <meta name="description" content="I am a creative technologist with over 10 years experience in full-stack development, UX, product development and mobile.">
+  <meta name="author" content="SoundMind">
 
-        <style>
-            body {
-                background: #101515;
-            }
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
 
-            #glslCanvas {
-                position: absolute;
-                
-                left: 0;
-                top: 0;
-                /*image-rendering: pixelated;*/
-                
-            }​
-        </style>
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-    </head>
-    <body>
-	<canvas id="glslCanvas" data-fragment="
-	
-	precision lowp float;
-	uniform vec2 u_resolution;
-	uniform float u_time;
+<!-- 
+  <meta property="og:url"                content="http://alexfox.dev" />
+  <meta property="og:type"               content="profile" />
+  <meta property="og:title"              content="Alex Fox - Creative Technologist" />
+  <meta property="og:description"        content="I am a creative technologist with over 10 years' experience in full-stack development, UX, product development, web and mobile." />
+  <meta property="og:image"              content="https://alexfox.dev/img/ogimage.jpg" />
+ -->
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <!-- <link rel="stylesheet" href="css/animate.css"> -->
+  <link rel="stylesheet" href="css/style.css">
 
-	void main(){
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<!-- <link rel="icon" href="/favicon.png"> -->
 
-	    float i = u_time/10.0;
-	    vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;	    
-	    vec4 c = vec4(1.0);
-	    mat2 m = mat2(sin(length(uv)+i),cos(uv.x-i*.5),sin(uv.x*uv.y),sin(cos(uv.x)+uv.y));
-	    c.rg = atan(sin(uv.xy*m+i)*8.0)*m;
-	    c.r += 0.4;
-	    c.g -= 0.3;
-	    c.b = 0.7;
-	    gl_FragColor = c;
+  <!-- <script src="js/everpolate.js"></script> -->
+  <!-- <script src="js/smoothscroll.js"></script> -->
+	<!-- <script src="js/main.js"></script> -->
 
-	}" ></canvas>
-	</body>
+  <script>
+    window.onload = function() { 
+      setTimeout(() => {
+        document.body.classList.remove("loading")
+        document.body.classList.add("loaded")
+      }, 200)
 
-    <script>
-        var canvas = document.getElementById("glslCanvas")
-        canvas.width = 500
-        canvas.height = 400
-        
-        var w = window.innerWidth
-        var h = window.innerHeight
-        canvas.style.width = w+"px"
-        canvas.style.height = h+"px"
-        
-        var sandbox = new GlslCanvas(canvas)
+      const ratio = window.innerWidth/window.innerHeight
+      const isMobile = ratio<0.75
 
-        // canvas.style.transformOrigin = "0 0"
-        
-        
+      if(isMobile) {
+        document.body.classList.remove("desktop")
+        document.body.classList.add("mobile")
+      } else {
+        document.body.classList.remove("mobile")
+        document.body.classList.add("desktop")
+      }
+    }
 
-    </script>
+    window.gen_mail_to_link = function(lhs,rhs,subject) {
+      document.write("<a id=contactMe href=\"mailto");
+      document.write(":" + lhs + "@");
+      document.write(rhs + "?subject=" + subject + "\">Email Us<\/a>");
+    }
 
-</html>
+  </script>
+
+</head>
+
+<body class="loading">
+  <div id="header">
+    <img src="img/logo.png" />
+
+  	<!-- <iframe src="https://www.shadertoy.com/embed/Wd2SzK?gui=false&t=10&paused=false&muted=true" width="640" height="360" frameborder="0"></iframe > -->
+  </div>
+
+  <div class="container" id="main">
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Our Vision</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum felis sit amet tincidunt egestas. Aenean eros turpis, facilisis eu bibendum at, ornare at enim. Nam bibendum elit nibh, eu iaculis augue facilisis vel. Integer blandit maximus libero, a imperdiet felis sollicitudin in.</p>
+
+        <p>Mauris sit amet nibh dui. Fusce rutrum, nisl sed eleifend condimentum, ipsum risus pretium mauris, sit amet dictum justo mauris at justo. Quisque sodales massa turpis, at auctor elit iaculis ut. Praesent malesuada a dolor lacinia laoreet. Cras suscipit turpis laoreet pharetra pretium. In metus turpis, dictum non vulputate id, porta eget ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Cosm</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="seven columns">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum felis sit amet tincidunt egestas. Aenean eros turpis, facilisis eu bibendum at, ornare at enim. Nam bibendum elit nibh, eu iaculis augue facilisis vel. Integer blandit maximus libero, a imperdiet felis sollicitudin in.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum felis sit amet tincidunt egestas. Aenean eros turpis, facilisis eu bibendum at, ornare at enim. Nam bibendum elit nibh, eu iaculis augue facilisis vel. Integer blandit maximus libero, a imperdiet felis sollicitudin in.</p>
+      </div>
+
+      <div class="four offset-by-one columns">
+        <img src="img/cosm-phone.png" style="width: 100%;" />
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Get in touch</h3>
+
+        <script type="text/javascript"> 
+            gen_mail_to_link('feedback','sndmnd.com','Hi..');
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="container">
+      <div id="img"></div>
+    </div>
+  </div>
+</body>
+
