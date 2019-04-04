@@ -8,17 +8,25 @@ body.loading {
     opacity: 0;
 }
 
+
 #header {
 	width: 100vw;
     height: 100vh;
     align-content: center;
     justify-content: center;
     display: flex;
-    background: #ae48d2;
+}
+
+#shader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: -1;
 }
 
 #main {
-	margin-top: 35pt;
+	padding-top: 35pt;
+	background: white;
 }
 
 #header iframe {
