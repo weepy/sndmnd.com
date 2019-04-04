@@ -37,6 +37,7 @@
 	<!-- <link rel="icon" href="/favicon.png"> -->
 
   <script type="text/javascript" src="./js/glslcanvas.js"></script>
+  <script type="text/javascript" src="./js/lax.js"></script>
 
 
   <!-- <script src="js/everpolate.js"></script> -->
@@ -62,8 +63,9 @@
       }
 
       var canvas = document.getElementById("shader")
-      canvas.width = 500
-      canvas.height = 400
+
+      canvas.width = 500*ratio
+      canvas.height = 500
       
       var w = window.innerWidth
       var h = window.innerHeight
@@ -72,7 +74,18 @@
       
       new GlslCanvas(canvas)
 
+      lax.setup() 
+
+      var updateLax = () => {
+        lax.update(window.scrollY)
+        window.requestAnimationFrame(updateLax)
+      }
+
+      window.requestAnimationFrame(updateLax)
+
     }
+
+  
 
     window.gen_mail_to_link = function(lhs,rhs,subject) {
       document.write("<a id=contactMe href=\"mailto");
@@ -98,19 +111,24 @@
       uniform float u_time;
 
       void main(){
-          float i = u_time/10.0;
-          vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;        
-          vec4 c = vec4(1.0);
-          mat2 m = mat2(sin(length(uv)+i),cos(uv.x-i*.5),sin(uv.x*uv.y),sin(cos(uv.x)+uv.y));
-          c.rg = atan(sin(uv.xy*m+i)*8.0)*m;
-          c.r += 0.4;
-          c.g -= 0.3;
-          c.b = 0.7;
-          gl_FragColor = c;
+        float i = u_time/20.0;
+        vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;        
+        vec4 c = vec4(1.0);
+        mat2 m = mat2(sin(length(uv)+i),cos(uv.x-i*.5),sin(uv.x*uv.y),sin(cos(uv.x)+uv.y));
+        c.rg = atan(sin(uv.xy*m+i)*8.0)*m;
+        c.r += 0.4;
+        c.g -= 0.3;
+        c.b = 0.7;
+        gl_FragColor = c;
       }"
-    ></canvas>
+    ></canvas> 
 
-    <img src="img/logo.png" />
+    <div id="logo" class="lax" data-lax-translate-y="0 0, vh (vh/2)">
+      <div id="shadow"></div>
+      <img src="img/logo.png"/>
+    </div>
+
+    
 
   </div>
 
@@ -165,6 +183,4 @@
     </div>
   </div>
 </body>
-
-
 

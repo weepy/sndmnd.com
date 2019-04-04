@@ -27,6 +27,8 @@ body.loading {
 #main {
 	padding-top: 35pt;
 	background: white;
+	z-index: 2;
+	position: relative;
 }
 
 #header iframe {
@@ -41,16 +43,30 @@ body.loading {
 	z-index: -1;
 }
 
+#header #logo {
+	margin-top: calc( 50vh - 20pt );
+	position: absolute;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #header img {
-	z-index: 1;
 	height: 220pt;
-	margin-top: calc( 50vh - 130pt );
+	z-index: 2;
+	position: absolute;
+}
+
+#header #shadow {
+	width: 700pt;
+    height: 700pt;
+    position: absolute;
+    background: radial-gradient(#6b314680 10%, #111eaf00 50%, #111eaf00);
 }
 
 .mobile #header img {
 	z-index: 1;
 	height: 140pt;
-	margin-top: calc( 50vh - 70pt );
 }
 
 #footer {
@@ -62,17 +78,16 @@ body.loading {
 
 #footer #container {
     width: 80pt;
-    background: #f35491;
     padding: 18pt 0pt;
     border-radius: 60pt;
 }
 
 #footer #container #img {
-    height: 45pt;
+    height: 50pt;
     width: 80pt;
     background: url(../img/logo.png);
-    border-radius: 60pt;
     background-size: 120pt;
     background-position: top center;
     background-repeat: no-repeat;
+    filter: invert(1);
 }
