@@ -14,9 +14,11 @@
 
             #glslCanvas {
                 position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%,-50%);
+                
+                left: 0;
+                top: 0;
+                /*image-rendering: pixelated;*/
+                
             }​
         </style>
 
@@ -33,7 +35,7 @@
 	void main(){
 
 	    float i = u_time/10.0;
-	    vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*8.0;	    
+	    vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;	    
 	    vec4 c = vec4(1.0);
 	    mat2 m = mat2(sin(length(uv)+i),cos(uv.x-i*.5),sin(uv.x*uv.y),sin(cos(uv.x)+uv.y));
 	    c.rg = atan(sin(uv.xy*m+i)*8.0)*m;
@@ -42,15 +44,24 @@
 	    c.b = 0.7;
 	    gl_FragColor = c;
 
-	}" width="800" height="600"></canvas>
+	}" width="800" height="700"></canvas>
 	</body>
 
     <script>
         var canvas = document.getElementById("glslCanvas")
-        var sandbox = new GlslCanvas(canvas)
+
         
-        canvas.style.width = '100%';
-        canvas.style.height = '100%';
+        var w = window.innerWidth
+        var h = window.innerHeight
+        canvas.style.width = w+"px"
+        canvas.style.height = h+"px"
+        
+        var sandbox = new GlslCanvas(canvas)
+
+        // canvas.style.transformOrigin = "0 0"
+        
+        
+
     </script>
 
 </html>
