@@ -115,11 +115,16 @@
         vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;        
         vec4 c = vec4(1.0);
         mat2 m = mat2(sin(length(uv)+i),cos(uv.x-i*.5),sin(uv.x*uv.y),sin(cos(uv.x)+uv.y));
+        
+
         c.rg = atan(sin(uv.xy*m+i)*8.0)*m;
-        c.r += 0.4;
+
+
         c.g -= 0.3;
-        c.b = 0.7;
-        gl_FragColor = c;
+
+        c.a= 1.;
+        gl_FragColor = mix(c, vec4(1.0,1.,1.,1.),0.93);
+
       }"
     ></canvas> 
 
