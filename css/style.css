@@ -63,16 +63,22 @@ h1, h2, h3, h4, h5, h6 {
 
 #header #logo {
 	margin-top: calc( 50vh - 20pt );
-	position: absolute;
+	position: fixed;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-#header img {
+#header #logo img {
 	height: 220pt;
 	z-index: 2;
 	position: absolute;
+}
+
+#header #scrollArrow {
+	position: fixed;
+	bottom: 40pt;
+	width: 20pt;
 }
 
 .mobile #header img {
@@ -102,10 +108,11 @@ h1, h2, h3, h4, h5, h6 {
 
 #footer #container {
 	width: 160pt;
+	text-align: center;
 }
 
 #footer #container img {
-	width: 100pt;
+	width: 140pt;
 }
 
 .app-title {
@@ -192,23 +199,23 @@ display: inline-block;
 }
 
 #alex, #jonah {
-	width: 60%;
+	width: 45%;
 	border-radius: 100%;
 }
 
 #alex {
-	margin-left: 5%;
+	margin-left: 0%;
 }
 
 #jonah {
-	margin-left: -20%;
+	margin-left: 5%;
 }
 
 @media (max-width: 900px) {
 	#alex, #jonah {
-		width: 180pt;
+		width: 160pt;
 		margin-left: 10%;
-		margin-top: -20pt;
+		margin-bottom: 10pt;
 	}
 
 	#profilePics {
@@ -218,7 +225,7 @@ display: inline-block;
 
 @media (max-width: 550px) {
 	#alex, #jonah {
-		width: 55%;
+		width: 47.5%;
 		margin-top: 20pt;
 	}
 
@@ -227,7 +234,7 @@ display: inline-block;
 	}
 
 	#jonah {
-		margin-left: -12%;
+		margin-left: 5%;
 	}
 
 	#profilePics {
@@ -261,7 +268,7 @@ display: inline-block;
 
 	.applisting .iphone-small {
 		height: 230pt;
-		background-size: 150pt;
+		background-size: 170pt;
 	}
 
 	#breathesonic {
