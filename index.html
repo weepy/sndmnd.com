@@ -16,9 +16,9 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500" rel="stylesheet">
 
-<!-- 
+<!--
   <meta property="og:url"                content="http://alexfox.dev" />
   <meta property="og:type"               content="profile" />
   <meta property="og:title"              content="Alex Fox - Creative Technologist" />
@@ -45,7 +45,7 @@
 	<!-- <script src="js/main.js"></script> -->
 
   <script>
-    window.onload = function() { 
+    window.onload = function() {
       setTimeout(() => {
         document.body.classList.remove("loading")
         document.body.classList.add("loaded")
@@ -66,15 +66,15 @@
 
       canvas.width = 500*ratio
       canvas.height = 500
-      
+
       var w = window.innerWidth
       var h = window.innerHeight
-      canvas.style.width = w
-      canvas.style.height = h+"px"
-      
+      canvas.style.width = "100vw" //w+"px"
+      canvas.style.height = "100vh"// h+"px"
+
       new GlslCanvas(canvas)
 
-      lax.setup() 
+      lax.setup()
 
       var updateLax = () => {
         lax.update(window.scrollY)
@@ -85,12 +85,12 @@
 
     }
 
-  
+
 
     window.gen_mail_to_link = function(lhs,rhs,subject) {
       document.write("<a class='button button-primary' id=contactMe href=\"mailto");
       document.write(":" + lhs + "@");
-      document.write(rhs + "?subject=" + subject + "\">Email Us<\/a>");
+      document.write(rhs + "?subject=" + subject + "\">Contact Us<\/a>");
     }
 
 
@@ -112,105 +112,151 @@
 
       void main(){
         float i = u_time/10.0;
-        vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;        
+        vec2 uv = (gl_FragCoord.xy / u_resolution.xy - 0.5)*7.0;
         vec4 c = vec4(1.0);
         mat2 m = mat2(sin(length(uv)+i),cos(uv.x-i*.5),sin(uv.x*uv.y),sin(cos(uv.x)+uv.y));
-        
 
-        c.rg = atan(sin(uv.xy*m+i)*8.0)*m;
-
+        c.rb = atan(sin(uv.xy*m+i)*8.0)*m;
 
         c.g -= 0.3;
-
+        c.b = 0.6;
         c.a= 1.;
-        gl_FragColor = mix(c, vec4(1.0,1.,1.,1.),0.93);
-
+        gl_FragColor = c;
       }"
-    ></canvas> 
+    ></canvas>
 
-    <div id="logo" class="lax" data-lax-translate-y="0 0, vh (vh/2)">
-      <div id="shadow"></div>
+    <div id="logo" class="lax" data-lax-translate-y="0 0, vh (vh*0.8)" data-lax-opacity="(vh/2) 1, (vh*0.8) 0">
       <img src="img/logo.png"/>
     </div>
 
-    
 
   </div>
 
   <div id="main">
-    <div class="container">
-      <div class="row">
-        <div class="twelve columns">
-          <h3>Our Vision</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum felis sit amet tincidunt egestas. Aenean eros turpis, facilisis eu bibendum at, ornare at enim. Nam bibendum elit nibh, eu iaculis augue facilisis vel. Integer blandit maximus libero, a imperdiet felis sollicitudin in.</p>
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="twelve columns">
+            <div id="vision">
+              <h4>Our Vision</h4>
+              <p>Many people have issues with mental health, whether it's stress, anxiety, or simply tiredness. At SoundMind we want to help people improve their mental health and fitness using music and sound.</p>
 
-          <p>Mauris sit amet nibh dui. Fusce rutrum, nisl sed eleifend condimentum, ipsum risus pretium mauris, sit amet dictum justo mauris at justo. Quisque sodales massa turpis, at auctor elit iaculis ut. Praesent malesuada a dolor lacinia laoreet. Cras suscipit turpis laoreet pharetra pretium. In metus turpis, dictum non vulputate id, porta eget ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+              <p>We believe that the process of music creation is a rich and rewarding environment with a positive impact on the mind. It's normally only a limited few that are able to practice it, but advances in smartphone technology mean it's possible to build tools that give interactive sonic experiences without years of training.</p>
+
+              <p>Sound has several properties making it suitable as a medium for exploring mental health. It is capable of representing complex thoughts and emotions and it is intimately connected to the physical and your body.</p>
+
+              <p>SoundMind is a social tech company. We aim to create things that are evidence-based and human-centred.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="cosm">
+      <div class="container">
+        <div class="row">
+          <div class="seven columns">
+            <h4 class="app-title">Cosm: Create mindful music</h4>
+
+            <p>Cosm is a new way to practice mindfulness using sound.</p>
+
+            <p>The app creates beautiful ambient soundscapes from your gestures. Use it to relax, improve focus, fall asleep or reduce anxiety.</p>
+
+            <p>The generative music has been designed using concepts from cognitive psychology to help you relax quickly. The sound is observable, but forever evolving giving a sense of timelessness. The elements rise and fall away, much like our own thoughts.</p>
+
+            <p>Get lost in the creative flow and immerse yourself in a sea of sound.</p>
+
+  <!--           <a href="https://itunes.apple.com/app/id1456263623" id="appstore-link">
+              <img src="img/appstore-button.png" />
+            </a> -->
+
+            <a href="https://forms.gle/CxYwEsSf2UXMYMmi8" id="appstore-link">
+              <img src="img/beta-button.png" />
+            </a>
+
+          </div>
+
+          <div class="four offset-by-one columns">
+            <div
+              style="width: 100%; background-image: url(img/cosm-iphone.png);"
+              class="screenshot"
+            ></div>
+          </div>
         </div>
       </div>
+    </div>
+    <div id="otherapps">
+      <div class="container">
+        <div class="row">
+          <div class="six columns applisting">
+            <div class="six columns">
+              <h4>ChillScape</h4>
+              <p>ChillScape combines cognitive psychology, AI generated music and mesmerising graphics to create an experience that’s calming, fun and immersive.</p>
 
-      <hr />
+              <a href="https://itunes.apple.com/app/id1441147066" class="appstore-link-small">
+                <img src="img/appstore-button.png" />
+              </a>
+            </div>
+            <div class="six columns iphone-small" style="background-image: url(img/chillscape-iphone.png)">
+            </div>
+          </div>
 
-      <div class="row">
-        <div class="seven columns">
-          <h3 class="app-title">Cosm: Explore mindful music</h3>
-          <h5 class="app-subtitle">Immerse your mind in sound</h5>
+          <div class="six columns applisting" id="breathesonic">
+            <div class="six columns">
+              <h4>BreatheSonic</h4>
+              <p>BreatheSonic uses dynamically generated music and immersive graphics to help you retrain your body to breathe correctly.</p>
 
-          <p>Cosm was designed using concepts from cognitive psychology to provide a new way to practice mindfulness using sound.</p>
-
-          <p>The app creates beautiful ambient soundscapes from your gestures. Use it to relax, improve focus, fall asleep or reduce anxiety.</p>
-
-          <p style="margin-bottom: 12pt">We believe that sound is the perfect medium for practicing mindfulness:</p>
-
-          <ul>
-            <li>It only exists in the moment</li>
-            <li>Is observable and forever changing</li>
-            <li>Elements come and go, much like thoughts</li>
-            <li>Is intimately linked to our body and mood</li>
-          </ul>
-
-          <h5>How it works</h5>
-          <p>Tap and drag on the screen to create and explore beautiful ambient melodies and textures. Close your eyes and reflect on how the sound makes you feel and explore your own thoughts.</p>
-          <p>For travelling or sleeping, turn off the screen and the soundscape with evolve naturally over time.</p>
-          <p>Get lost in the creative flow and immerse yourself in a sea of sound.</p>
-
-<!--           <a href="https://itunes.apple.com/app/id1456263623" id="appstore-link">
-            <img src="img/appstore-button.png" />
-          </a> -->
-
-          <a href="https://forms.gle/CxYwEsSf2UXMYMmi8" id="appstore-link">
-            <img src="img/beta-button.png" />
-          </a>
-
+              <a href="https://itunes.apple.com/app/id1453204358" class="appstore-link-small">
+                <img src="img/appstore-button.png" />
+              </a>
+            </div>
+            <div class="six columns iphone-small" style="background-image: url(img/breathesonic-iphone.png)">
+            </div>
+          </div>
         </div>
+        <div class="row" id="accolades">
 
-        <div class="four offset-by-one columns">
-          <div 
-            style="width: 100%; background-image: url(img/cosm-iphone.png);"
-            data-lax-translate-x="vh -50, -elh 100" 
-            data-lax-anchor="self"
-            class="lax screenshot"
-          ></div>
+          <div class="three columns"><img src="img/appOfTheDay.png" /></div>
+          <div class="three columns"><img src="img/newAppsWeLove.png" /></div>
+          <div class="three columns"><img src="img/techRadar.png" /></div>
+          <div class="three columns"><img src="img/cultOfMac.png" /></div>
+
         </div>
       </div>
+    </div>
 
-      <hr />
+    <div id="about">
+      <div class="container">
+        <div class="row">
+          <div class="twelve columns">
+            <h3>About Us</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <p>The founders, brothers Jonah Fox and Alex Fox both found music creation as a rich outlet from a young age.</p>
 
-      <div class="row">
-        <div class="twelve columns">
-          <h3>Get in touch</h3>
+            <p>This experience along with their backgrounds as scientists and technologists has enabled them to create tools designed to tackle an important, yet problematic issue: understanding one's own mind.</p>
 
-          <script type="text/javascript"> 
-              gen_mail_to_link('feedback','sndmnd.com','Hi..');
-          </script>
+            <p>Their company SoundMind, is dedicated to designing and inventing products that improve the lives of people.</p>
+
+            <script type="text/javascript">
+                gen_mail_to_link('feedback','sndmnd.com','Hi..');
+            </script>
+          </div>
+          <div class="six columns" id="profilePics">
+            <img src="./img/alex.jpg" id="alex" />
+            <img src="./img/jonah.png" id="jonah" />
+          </div>
+
         </div>
       </div>
     </div>
 
     <div id="footer">
       <div id="container">
-        <div id="img"></div>
+        <img src="img/logo-footer.png"/>
       </div>
     </div>
   </div>
 </body>
-

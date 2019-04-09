@@ -1,21 +1,24 @@
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Work Sans', sans-serif;
 	transition: opacity 500ms;
-    overflow-x: hidden; 
+	overflow-x: hidden;
 }
 
 body.loading {
-    opacity: 0;
+	opacity: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 500;
+}
 
 #header {
 	width: 100vw;
-    height: 100vh;
-    align-content: center;
-    justify-content: center;
-    display: flex;
-    overflow: hidden;
+	height: 100vh;
+	align-content: center;
+	justify-content: center;
+	display: flex;
+	overflow: hidden;
 }
 
 #shader {
@@ -26,19 +29,44 @@ body.loading {
 }
 
 #main {
-	padding-top: 35pt;
-	background: white;
+	/*padding-top: 35pt;*/
+	/*background: #faf2ff;*/
 	z-index: 2;
 	position: relative;
-	width: 100vw;
+	/*width: 100vw;*/
+	font-weight: 400;
+	color: #3e3c8d;
+}
+
+#vision {
+	background: #2D3F4D;
+	padding: 5rem;
+	color: #f1f2f1;
+}
+
+.mobile #vision {
+	padding: 2rem;
+}
+
+.mobile #cosm {
+	padding: 4rem 0 8rem 0;
+}
+
+.mobile #otherapps {
+	padding: 4rem 0 2rem;
+}
+
+
+.mobile #about {
+	padding: 4rem 0;
 }
 
 #header #logo {
 	margin-top: calc( 50vh - 20pt );
 	position: absolute;
 	display: flex;
-    align-items: center;
-    justify-content: center;
+	align-items: center;
+	justify-content: center;
 }
 
 #header img {
@@ -47,53 +75,56 @@ body.loading {
 	position: absolute;
 }
 
-#header #shadow {
-	width: 700pt;
-    height: 700pt;
-    max-width: 100vw;
-    position: absolute;
-    background: radial-gradient(#3b22eb80 10%, #3b22eb00 50%, #3b22eb00);
-}
-
 .mobile #header img {
 	z-index: 1;
 	height: 140pt;
 }
 
+#cosm {
+	background: #c5d3d4;
+	color: #2D3F4D;
+	margin-top: 5rem;
+	padding: 8rem 0;
+}
+
+#otherapps {
+	background: #e4eaea;
+	padding: 8rem 0;
+}
+
 #footer {
 	padding: 40pt 0;
-    justify-content: center;
-    width: 100%;
-    display: flex;
+	justify-content: center;
+	width: 100%;
+	background: #2D3F4D;
+	display: flex;
 }
 
 #footer #container {
-    width: 160pt;
+	width: 160pt;
 }
 
-#footer #container #img {
-    height: 100pt;
-    width: 160pt;
-    background: url(../img/logo.png);
-    background-size: 130pt;
-    background-position: top center;
-    background-repeat: no-repeat;
-    filter: invert(1);
+#footer #container img {
+	width: 100pt;
 }
 
 .app-title {
-	margin-bottom: 0;
+	/* margin-bottom: 0; */
 }
 
 .app-subtitle {
-	font-size: 14pt;
-    color: gray;
-    font-style: italic;
+	font-size: 16pt;
+	opacity: 0.6;
+	font-style: italic;
 }
 
 #appstore-link {
 	margin-top: 1rem;
 	display: inline-block;
+}
+
+.appstore-link-small img {
+	width: 130pt;
 }
 
 #appstore-link:hover {
@@ -105,18 +136,150 @@ body.loading {
 }
 
 .screenshot {
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 100vh;
+	background-size: contain;
+	background-repeat: no-repeat;
+	height: 500pt;
 }
 
 .mobile .screenshot {
-    margin-top: 20pt;
-    height: 100vh;
-    background-size: cover;
+	margin-top: 20pt;
+	height: 80vh;
+	width: 100%;
+	margin-bottom: -60pt;
+	background-size: cover;
 }
 
 li {
 	padding-left: 14pt;
 	margin-bottom: 4pt;
+}
+
+#accolades {
+	padding-top: 5rem;
+}
+
+#accolades img {
+	height: 100pt;
+	margin: 20pt 0;
+}
+
+#accolades .columns {
+	text-align: center;
+}
+
+#about {
+	padding: 8rem 0;
+	background: #44B19A;
+	color: white;
+}
+
+/*#about img {
+width: 200pt;
+height: 200pt;
+border-radius: 100pt;
+display: inline-block;
+}*/
+
+.iphone-small {
+	height: 260pt;
+	background-size: 78%;
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+#profilePics {
+	white-space: nowrap;
+}
+
+#alex, #jonah {
+	width: 60%;
+	border-radius: 100%;
+}
+
+#alex {
+	margin-left: 5%;
+}
+
+#jonah {
+	margin-left: -20%;
+}
+
+@media (max-width: 900px) {
+	#alex, #jonah {
+		width: 180pt;
+		margin-left: 10%;
+		margin-top: -20pt;
+	}
+
+	#profilePics {
+		white-space: normal;
+	}
+}
+
+@media (max-width: 550px) {
+	#alex, #jonah {
+		width: 55%;
+		margin-top: 20pt;
+	}
+
+	#alex {
+		margin-left: 0%;
+	}
+
+	#jonah {
+		margin-left: -12%;
+	}
+
+	#profilePics {
+		white-space: nowrap;
+	}
+
+	#accolades img {
+		height: 85pt !important;
+	}
+
+	#accolades .three.columns {
+		width: 50%;
+	}
+
+	#breathesonic {
+		margin-top: 4rem !important;
+	}
+
+	.iphone-small {
+		margin-top: 3rem;
+		background-size: 200pt !important;
+    border-bottom: 1px solid #c7ced1;
+	}
+}
+
+@media (max-width: 1000px) {
+	.applisting {
+		width: 100% !important;
+		margin-left: 0 !important;
+	}
+
+	.applisting .iphone-small {
+		height: 230pt;
+		background-size: 150pt;
+	}
+
+	#breathesonic {
+    margin-top: 8rem;
+	}
+
+	#accolades img {
+		height: 70pt;
+	}
+}
+
+@media (min-width: 1200px) {
+	.screenshot {
+		width: 220pt !important;
+		height: 480pt !important;
+		margin-bottom: -60pt;
+		margin-top: -20pt;
+		background-size: cover !important;
+	}
+
 }
