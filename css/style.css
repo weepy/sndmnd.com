@@ -1,3 +1,7 @@
+html {
+	background: #00b299;
+}
+
 body {
 	font-family: 'Work Sans', sans-serif;
 	transition: opacity 500ms;
@@ -81,9 +85,10 @@ h1, h2, h3, h4, h5, h6 {
 	width: 20pt;
 }
 
-.mobile #header img {
+.mobile #logo img {
 	z-index: 1;
 	height: 140pt;
+  max-height: 60vw;
 }
 
 #cosm {
